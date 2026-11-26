@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KawaiiCraft & Co. | Aksesoris Unik & Lucu</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ✨ Gratis Ongkir se-Indonesia untuk pembelian minimal Rp 100.000! Kode: <strong>LUCUHEMAT</strong> ✨
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">🎀</span>
+                <span class="logo-text">KawaiiCraft<span class="dot">.</span></span>
+            </a>
+
+            <div class="search-bar">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Cari jepit rambut, gantungan kunci, cincin clay...">
+            </div>
+
+            <nav class="nav-actions">
+                <!-- Auth / User Menu -->
+                <div id="authArea">
+                    <button class="btn btn-login-nav" id="openAuthBtn">
+                        <i data-lucide="user"></i> <span>Masuk / Daftar</span>
+                    </button>
+                </div>
+
+                <button class="icon-btn" id="ordersBtn" title="Riwayat Pesanan">
+                    <i data-lucide="package"></i>
+                    <span class="badge" id="ordersCount">0</span>
+                </button>
+                <button class="icon-btn" id="wishlistBtn" title="Wishlist">
+                    <i data-lucide="heart"></i>
+                    <span class="badge" id="wishlistCount">0</span>
+                </button>
+                <button class="icon-btn cart-trigger" id="cartBtn" title="Keranjang Belanja">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="pill-tag">🌟 Koleksi Handmade Terbaru 2026</span>
+                <h1>Bikin Harimu Makin Gemas dengan Aksesoris Unik!</h1>
+                <p>Temukan koleksi jepit rambut pastel, gantungan kunci rajut, hingga cincin clay handmade yang dikurasi khusus untuk melengkapi gaya aesthetic-mu.</p>
+                <div class="hero-buttons">
+                    <a href="#katalog" class="btn btn-primary">Belanja Sekarang <i data-lucide="arrow-right"></i></a>
+                    <a href="#kategori" class="btn btn-secondary">Lihat Kategori</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>500+</strong>
+                        <span>Desain Unik</span>
+                    </div>
+                    <div class="stat">
+                        <strong>4.9/5</strong>
+                        <span>Rating Pembeli</span>
+                    </div>
+                    <div class="stat">
+                        <strong>100%</strong>
+                        <span>Handmade Cinta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <span class="emoji-art">🧸</span>
+                    <div>
+                        <h4>Bear Keychain</h4>
+                        <p>Rp 25.000</p>
+                    </div>
+                </div>
+                <div class="hero-blob">
+                    <div class="main-showcase">
+                        <span class="big-emoji">🌸✨💍</span>
+                        <p>Cute & Aesthetic</p>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <span class="emoji-art">🍓</span>
+                    <div>
+                        <h4>Berry Hairclip</h4>
+                        <p>Rp 18.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section id="kategori" class="categories container">
+        <div class="section-header">
+            <h2>Pilih Kategori Favoritmu</h2>
+            <p>Klik kategori di bawah untuk menyaring aksesoris pilihan</p>
+        </div>
+        <div class="category-pills" id="categoryPills">
+            <button class="cat-btn active" data-category="all">✨ Semua Produk</button>
+            <button class="cat-btn" data-category="hair">🎀 Jepit & Ikat Rambut</button>
+            <button class="cat-btn" data-category="keychain">🧸 Gantungan Kunci</button>
+            <button class="cat-btn" data-category="jewelry">💍 Cincin & Kalung</button>
+            <button class="cat-btn" data-category="phone">📱 Phone Strap</button>
+        </div>
+    </section>
+
+    <!-- Product Catalog -->
+    <section id="katalog" class="catalog container">
+        <div class="catalog-header">
+            <h2 id="catalogTitle">Semua Aksesoris Lucu</h2>
+            <select id="sortSelect" class="sort-dropdown">
+                <option value="default">Urutkan: Paling Diminati</option>
+                <option value="low-high">Harga: Termurah ke Termahal</option>
+                <option value="high-low">Harga: Termahal ke Termurah</option>
+            </select>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+            <!-- Produk akan dirender otomatis oleh JavaScript -->
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner container">
+        <div class="promo-box">
+            <div class="promo-content">
+                <span class="promo-badge">CUSTOM ORDER</span>
+                <h2>Mau Bikin Aksesoris Custom Sesuai Karaktermu?</h2>
+                <p>Kami menerima pesanan custom nama, warna favorit, hingga souvenir acara spesial dengan desain eksklusif.</p>
+                <button class="btn btn-primary" onclick="openCustomModal()">Pesan Custom Sekarang</button>
+            </div>
+            <div class="promo-emojis">🎨🧶✨</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-icon">🎀</span>
+                    <span class="logo-text">KawaiiCraft<span class="dot">.</span></span>
+                </a>
+                <p>Platform jual beli aksesoris unik, lucu, dan handmade penuh warna untuk mengekspresikan kepribadianmu setiap hari.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Bantuan</h4>
+                <ul>
+                    <li><a href="#">Cara Pemesanan</a></li>
+                    <li><a href="#">Info Pengiriman</a></li>
+                    <li><a href="#">Garansi Produk</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li>Instagram: @kawaiicraft.id</li>
+                    <li>TikTok: @kawaiicraft.id</li>
+                    <li>WhatsApp: +62 812-3456-7890</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 KawaiiCraft & Co. Dibuat dengan penuh cinta untuk pecinta hal-hal lucu.</p>
+        </div>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Cart Drawer (Sidebar) -->
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="drawer-header">
+            <h3>🛍️ Keranjang Belanja</h3>
+            <button class="close-btn" id="closeCartBtn"><i data-lucide="x"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Item keranjang dirender oleh JS -->
+        </div>
+        <div class="drawer-footer">
+            <div class="total-row">
+                <span>Total Belanja:</span>
+                <strong id="cartTotal">Rp 0</strong>
+            </div>
+            <button class="btn btn-primary btn-block" id="proceedCheckoutBtn">Lanjut Pembelian <i data-lucide="arrow-right"></i></button>
+        </div>
+    </aside>
+
+    <!-- Auth Modal (Login & Daftar) -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button class="close-btn modal-close" onclick="closeAllModals()"><i data-lucide="x"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Masuk (Login)</button>
+                <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Daftar Akun</button>
+            </div>
+
+            <!-- Form Login -->
+            <form id="loginForm">
+                <h3>👋 Selamat Datang Kembali!</h3>
+                <p>Masuk untuk menyimpan keranjang, wishlist, dan melihat riwayat pesananmu.</p>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" required placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Masukkan password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Masuk Sekarang</button>
+                <p class="demo-hint">💡 Belum punya akun? Klik tab <strong>Daftar Akun</strong> di atas atau coba akun demo: <code>demo@kawaiicraft.id</code> / <code>123456</code></p>
+            </form>
+
+            <!-- Form Register -->
+            <form id="registerForm" style="display: none;">
+                <h3>🎀 Buat Akun Member Baru</h3>
+                <p>Daftar gratis dan nikmati kemudahan belanja aksesoris lucu!</p>
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="regName" required placeholder="Contoh: Afifah Rizquna">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" required placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Nomor WhatsApp</label>
+                    <input type="tel" id="regPhone" required placeholder="081234567890">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="regPassword" required minlength="6" placeholder="Minimal 6 karakter">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Daftar & Masuk</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Checkout Modal (Formulir Pembelian) -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content modal-lg">
+            <button class="close-btn modal-close" onclick="closeAllModals()"><i data-lucide="x"></i></button>
+            <h3>🧾 Konfirmasi Pembelian</h3>
+            <p>Lengkapi alamat pengiriman dan metode pembayaranmu.</p>
+            
+            <div class="checkout-summary-box" id="checkoutSummaryBox">
+                <!-- Ringkasan item dirender JS -->
+            </div>
+
+            <form id="checkoutForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nama Penerima</label>
+                        <input type="text" id="shipName" required placeholder="Nama lengkap penerima">
+                    </div>
+                    <div class="form-group">
+                        <label>Nomor WhatsApp</label>
+                        <input type="tel" id="shipPhone" required placeholder="0812xxxx">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Alamat Lengkap Pengiriman</label>
+                    <textarea id="shipAddress" rows="2" required placeholder="Jalan, No. Rumah, Kecamatan, Kota, Kode Pos..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Metode Pembayaran</label>
+                    <select id="paymentMethod" required>
+                        <option value="QRIS (GoPay / OVO / DANA / ShopeePay)">QRIS (GoPay / OVO / DANA / ShopeePay)</option>
+                        <option value="Transfer Bank BCA">Transfer Bank BCA</option>
+                        <option value="Transfer Bank Mandiri">Transfer Bank Mandiri</option>
+                        <option value="COD (Bayar di Tempat)">COD (Bayar di Tempat)</option>
+                    </select>
+                </div>
+                <div class="checkout-actions">
+                    <button type="submit" class="btn btn-primary btn-block">Buat Pesanan Sekarang ✨</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order History Modal (Riwayat Pesanan) -->
+    <div class="modal" id="ordersModal">
+        <div class="modal-content modal-lg">
+            <button class="close-btn modal-close" onclick="closeAllModals()"><i data-lucide="x"></i></button>
+            <h3>📦 Riwayat Pesanan Saya</h3>
+            <p id="ordersSubtitle">Daftar transaksi pembelian yang pernah kamu buat.</p>
+            <div class="orders-list" id="ordersList">
+                <!-- Riwayat pesanan dirender oleh JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Order Modal -->
+    <div class="modal" id="customModal">
+        <div class="modal-content">
+            <button class="close-btn modal-close" onclick="closeAllModals()"><i data-lucide="x"></i></button>
+            <h3>🎨 Request Aksesoris Custom</h3>
+            <p>Isi detail keinginanmu, tim kreatif kami akan segera menghubungimu!</p>
+            <form id="customForm">
+                <div class="form-group">
+                    <label>Nama Kamu</label>
+                    <input type="text" id="custName" required placeholder="Contoh: Nadia Putri">
+                </div>
+                <div class="form-group">
+                    <label>Jenis Aksesoris</label>
+                    <select id="custType">
+                        <option value="Phone Strap Custom Nama">Phone Strap Custom Nama</option>
+                        <option value="Gantungan Kunci Rajut">Gantungan Kunci Rajut</option>
+                        <option value="Cincin Clay Karakter">Cincin Clay Karakter</option>
+                        <option value="Jepit Rambut Resin">Jepit Rambut Resin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Catatan Warna / Karakter</label>
+                    <textarea id="custNote" rows="3" required placeholder="Contoh: Warna pastel pink & biru, tambah charm kelinci..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Kirim Request ke WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Notifikasi</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
